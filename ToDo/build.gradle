@@ -1,0 +1,42 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.0'
+	id 'io.spring.dependency-management' version '1.1.0'
+
+	// MyBatis Generatorプラグイン
+	id "com.thinkimi.gradle.MybatisGenerator" version "2.4"
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+mybatisGenerator {
+	verbose = true
+	// 設定ファイル
+	configFile = "src/main/resources/generatorConfig.xml"
+
+
+	dependencies {
+//	implementation 'org.springframework.boot:spring-boot-starter-jdbc:3.0.3'
+//	runtimeOnly 'com.h2database:h2:2.1.212'
+		implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+		implementation 'org.springframework.boot:spring-boot-starter-validation'
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '3.0.0'
+		developmentOnly 'org.springframework.boot:spring-boot-devtools'
+		runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+		runtimeOnly 'org.postgresql:postgresql'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		compileOnly 'org.projectlombok:lombok'
+
+	}
+
+	tasks.named('test') {
+		useJUnitPlatform()
+	}
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+<p>demo</p>
+<p th:text="${test}"></p>
+
+
+<table class="tbtest">
+    <tr>
+        <th>id</th>
+        <th>first_name</th>
+        <th>last_name</th>
+        <th>last_update</th>
+    </tr>
+    <tr th:each="actor : ${actorList}">
+        <td th:text="${actor.actor_id}" ></td>
+        <td th:text="${actor.first_name}" ></td>
+        <td th:text="${actor.last_name}" ></td>
+        <td th:text="${actor.last_update}" ></td>
+    </tr>
+</table>
+
+</body>
+</html>

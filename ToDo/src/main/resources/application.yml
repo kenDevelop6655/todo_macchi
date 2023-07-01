@@ -1,0 +1,28 @@
+##h2dbの接続情報
+#spring:
+#  datasource:
+#    url: jdbc:h2:mem:todo
+#    driverClassName: org.h2.Driver
+#    username: sa
+#    password:
+#  h2.console.enabled: true
+#  devtools:
+#    livereload:
+#      enabled: true
+#    restart:
+#      enabled: true
+
+
+
+#PostgreSqlの接続情報
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/tododb?currentSchema=todo
+    username: postgres
+    password: pass
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
